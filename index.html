@@ -152,7 +152,7 @@
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Report</span>
                 </a>
               </span>
             </div>
@@ -242,7 +242,50 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Our Mission</h2>
+      </div>
+    </div>
+    
+    <div class="columns is-centered">
+      <!-- Image Column -->
+      <div class="column is-one-third">
+        <figure class="image is-4by3 figure-container">
+          <img class="mission-image" src="static/images/demand_map.png" alt="Description of Image">
+        </figure>
+      </div>
+
+      <!-- Text Column -->
+      <div class="column is-two-thirds">
+        <div class="content has-text-justified">
+          <p>
+            With the growing emphasis on clean transportation, the demand for electric vehicles (EVs) 
+            is increasing. However, there currently are not enough EV charging stations to meet this 
+            demand. Many of the existing chargers are concentrated in specific areas, leaving large 
+            parts of the city underserved. This imbalance can lead to equity issues, range anxiety, 
+            and congestion around existing chargers.
+          </p>
+          <p>
+            EVCS-OPTIM seeks to address these challenges while also optimizing placement to keep 
+            energy costs affordable for ratepayers. Our project uses data-driven methodologies, 
+            including geospatial analysis and optimization modeling, to find the most effective 
+            parking lot locations for new EV charging stations within San Diego County. By 
+            integrating previous EV adoption data, transit patterns, and proximity information, 
+            the project provides an interactive tool to assist San Diego Gas & Electric (SDG&E), 
+            which owns and operates thousands of EV charging stations across the region, in 
+            strategically expanding its EV infrastructure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Our Mission</h2>
@@ -261,44 +304,200 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
   </div>
 </section>
+-->
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Methods. -->
+    <!-- Methods -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Methods</h2>
 
-        <!-- Data. -->
+        <!-- Data Analysis -->
+        <div class="columns is-vcentered">
+          <!-- Image section on the left -->
+          <div class="column is-two-fifths"> 
+            <figure class="image is-4by3">
+              <img src="static/images/transit_map.png" alt="Data Analysis Image">
+            </figure>
+          </div>
+          <!-- Text section on the right -->
+          <div class="column is-three-fifths"> 
+            <div class="content has-text-justified">
+              <h3 class="title is-4 has-text-left" style="margin-top: 15px;">Data Analysis</h3>
+              <p>
+                To develop this project, we first conducted a correlation 
+                analysis of various features to determine which factors 
+                should be included in our model. We analyzed features 
+                related to demographics, transit and traffic data, and the 
+                locations of existing chargers. Based on this analysis, we 
+                selected the following key features:
+              </p>
+              <ul>
+                <li>Distance to the nearest charger</li>
+                <li>Number of chargers already at a parking lot</li>
+                <li>Number of chargers within a specific radius</li>
+                <li>Proximity to high-traffic areas</li>
+                <li>Proximity to transit stops</li>
+                <li>Population demographics of the zone in which the parking lot is located</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+            <figure class="image is-4by3">
+              <img src="static/images/transit_map.png" alt="Data Analysis Image">
+            </figure>
+          </div>
+          <div class="column is-half">
+            <div class="content has-text-justified">
+              <h3 class="title is-4 has-text-left">Data Analysis</h3>
+              <p>
+                To develop this project, we first conducted a correlation 
+                analysis of various features to determine which factors 
+                should be included in our model. We analyzed features 
+                related to demographics, transit and traffic data, and the 
+                locations of existing chargers. Based on this analysis, we 
+                selected the following key features:
+              </p>
+              <ul>
+                <li>Distance to the nearest charger</li>
+                <li>Number of chargers already at a parking lot</li>
+                <li>Number of chargers within a specific radius</li>
+                <li>Proximity to high-traffic areas</li>
+                <li>Proximity to transit stops</li>
+                <li>Population demographics of the zone in which the parking lot is located</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      -->
+        <!--/ Data Analysis -->
+
+        <!-- Model Development -->
+        <h3 class="title is-4 has-text-left">Model Development</h3>
+        <div class="columns is-vcentered">
+          <!-- Text section on the left -->
+          <div class="column is-three-fifths"> 
+            <div class="content has-text-justified">
+              <p>
+                We then assigned weights to each feature based on its 
+                correlation with the locations of existing chargers. 
+                Features that we wanted to avoid, such as proximity to 
+                existing chargers, were given negative weights. For 
+                instance, the "distance to the nearest charger" and 
+                "number of chargers already at a parking lot" features 
+                received negative weights, as we aim to recommend parking 
+                lots that are farther from existing stations. On the other 
+                hand, features that likely indicate higher demand, such as 
+                "proximity to high-traffic areas," were given positive weights.
+              </p>
+              <p>
+                After assigning weights, we calculated a demand score for 
+                each parking lot. To standardize the scores, we applied 
+                min-max scaling, ensuring that all scores fell within the 
+                range of 0 to 1. We then employed two recommendation methods:
+              </p>
+              <ol>
+                <li>
+                  If any parking lots' scores exceed a predefined threshold, 
+                  we recommend those lots.
+                </li>
+                <li>
+                  If none of the scores exceed the threshold, we rank the 
+                  parking lots by their demand scores and recommend those 
+                  with the highest scores.
+                </li>
+              </ol>
+            </div>
+          </div>
+          <!-- Image section on the right -->
+          <div class="column is-two-fifths">
+            <figure class="image">
+              <img src="static/images/transit_map.png" alt="Model Development Image" class="large-image"> <!-- Ensure the image takes up full column width -->
+            </figure>
+          </div>
+        </div>
+        <!--/ Model Development -->
+
+      </div>
+    </div>
+    <!--/ Methods -->
+  </div>
+</section>
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Methods</h2>
+
         <h3 class="title is-4 has-text-left">Data Analysis</h3>
         <div class="content has-text-justified">
           <p>
-            Key features include: High-traffic areas (OSMnx), 
-            Proximity to commercial hubs and transit destinations, 
-            Demographics and income by zip code, Development and 
-            operational costs, Electric vehicle distributions and adoption rates.
+            To develop this project, we first conducted a correlation 
+            analysis of various features to determine which factors 
+            should be included in our model. We analyzed features 
+            related to demographics, transit and traffic data, and the 
+            locations of existing chargers. Based on this analysis, we 
+            selected the following key features:
           </p>
+          <ul>
+            <li>Distance to the nearest charger</li>
+            <li>Number of chargers already at a parking lot</li>
+            <li>Number of chargers within a specific radius</li>
+            <li>Proximity to high-traffic areas</li>
+            <li>Proximity to transit stops</li>
+            <li>Population demographics of the zone in which the parking lot is located</li>
+          </ul>
+          
         </div>
-        <!--/ Data. -->
 
-        <!-- Mode. -->
         <h3 class="title is-4 has-text-left">Model Development</h3>
         <div class="content has-text-justified">
           <p>
-
+            We then assigned weights to each feature based on its 
+            correlation with the locations of existing chargers. 
+            Features that we wanted to avoid, such as proximity to 
+            existing chargers, were given negative weights. For 
+            instance, the "distance to the nearest charger" and 
+            "number of chargers already at a parking lot" features 
+            received negative weights, as we aim to recommend parking 
+            lots that are farther from existing stations. On the other 
+            hand, features that likely indicate higher demand, such as 
+            "proximity to high-traffic areas," were given positive weights.
           </p>
+          <p>
+            After assigning weights, we calculated a demand score for 
+            each parking lot. To standardize the scores, we applied 
+            min-max scaling, ensuring that all scores fell within the 
+            range of 0 to 1. We then employed two recommendation methods:
+          </p>
+          <ol>
+            <li>
+              If any parking lots' scores exceed a predefined threshold, 
+              we recommend those lots.
+            </li>
+            <li>
+              If none of the scores exceed the threshold, we rank the 
+              parking lots by their demand scores and recommend those 
+              with the highest scores.
+            </li>
+          </ol>
         </div>
-        <!--/ Model. -->
 
 
       </div>
     </div>
-    <!--/ Methods. -->
   </div>
 </section>
+-->
 
 <section class="section">
   <div class="container is-max-desktop">

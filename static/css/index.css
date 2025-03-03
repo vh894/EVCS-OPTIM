@@ -2,6 +2,17 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+section .title {
+  text-align: center; /* Center the title horizontally */
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Only add margin to the text block, not the image */
+.section .column.is-two-thirds {
+  margin-top: -10px; /* Adjust the value as needed */
+}
+
+
 .evcs-optim {
   font-size: 1.2em; /* Make EVCS-OPTIM slightly larger */
   font-weight: bold; /* Optional: makes it bold */
@@ -14,6 +25,59 @@ body {
   line-height: 1; /* Control the space between lines */
 }
 
+.mission-image {
+  width: 100%;      /* Ensure the image takes up the full width of its container */
+  height: auto;     /* Maintain the aspect ratio */
+  object-fit: contain; /* Prevent the image from being stretched */
+}
+
+.figure-container {
+  width: 100%; /* Ensure the figure container takes full width */
+}
+
+.column.is-one-third {
+  flex: 1;         /* Allow the column to expand to the available space */
+  max-width: 600px; /* Optional: Set a max-width for the image column */
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom class to control image size */
+.large-image {
+  width: 100%;
+  max-width: none; /* Remove any max-width restriction */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+.columns.is-vcentered {
+  display: flex;
+  justify-content: space-between; /* Adds space between the columns */
+  align-items: center;
+  gap: 60px; /* Adds space between image and text */
+}
+
+.column.is-two-thirds {
+  margin-top: -30px;  /* This could be adjusted to fit better */
+  margin-right: 0;    /* Remove negative margin */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.column.is-two-thirds h2 {
+  text-align: center;  /* Center the heading text */
+}
+
+.column.is-two-thirds .content {
+  text-align: center;  /* Center the paragraph text */
+  line-height: 1.6;     /* Optional: Increases line spacing for readability */
+}
 
 .footer .icon-link {
     font-size: 25px;
