@@ -2337,7 +2337,7 @@ input, select, textarea {
 			}
 
 /* Nav */
-
+/*
 	body {
 		padding-top: 3.25em;
 	}
@@ -2472,6 +2472,7 @@ input, select, textarea {
 				border-left: solid 1em transparent;
 				border-right: solid 1em transparent;
 			}
+*/
 
 /* Banner */
 
@@ -2580,7 +2581,7 @@ v
 	  
 
 /* Sidebar + Content */
-
+/*
 	.sidebar h2.major {
 		text-align: left;
 		margin: 0 0 1.5em 0;
@@ -2589,7 +2590,7 @@ v
 		.sidebar h2.major span {
 			padding-left: 0;
 		}
-
+*/
 /* Footer */
 
 	#footer {
@@ -2765,14 +2766,15 @@ v
 			}
 
 		/* Sidebar */
-
+			/*
 			.sidebar {
 				border-top: solid 2px #e7eae8;
 				padding-top: 50px;
 			}
+			*/
 
 		/* Nav */
-
+			/*
 			body {
 				padding-top: 44px;
 			}
@@ -2975,6 +2977,7 @@ v
 				-ms-transform: translateX(0);
 				transform: translateX(0);
 			}
+			*/
 
 	}
 
@@ -2988,10 +2991,18 @@ v
 				font-size: 11pt;
 			}
 
-			h2 {
-				font-size: 1.25em;
+			#banner .content h2 {
+				color: #fff;
+				font-size: 4em;
+				margin: 0 0 0.2em 0;
 			}
 
+			#banner .content h1 {
+				color: rgb(200, 198, 198);
+				font-size: 1.5em;
+				margin: 0 0 0.3em 0;
+			}
+				/*
 				h2.major {
 					font-size: 1.25em;
 					margin: 0 0 2em 0;
@@ -3000,15 +3011,34 @@ v
 					h2.major span {
 						padding: 0 1em;
 					}
-
+				*/
 		/* Section/Article */
 
 			section, article {
 				margin-bottom: 2em;
 			}
 
-		/* Button */
+			.content {
+				display: flex; /* Apply flexbox */
+				flex-direction: column; /* Stack the buttons vertically */
+				justify-content: center; /* Center buttons vertically */
+				align-items: center; /* Center buttons horizontally */
+				height: 100vh; /* Optional: make the content take full viewport height */
+			}
+			
+			.content h2 {
+				font-size: 5em; /* Adjust font size for medium screens */
+			}
 
+			/* Adjust the button styling if necessary */
+			.button {
+				display: block;
+				width: 100%; /* Adjust to fit the design */
+				margin: 10px 0; /* Add spacing between buttons */
+				text-align: center;
+			}
+
+		/* Button */
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
@@ -3025,7 +3055,7 @@ v
 				.button.large {
 					font-size: 1.25em;
 				}
-
+				
 		/* Actions */
 
 			ul.actions li {
@@ -3131,9 +3161,18 @@ v
 	@media screen and (max-width: 360px) {
 
 		/* Basic */
+			.content h2 {
+				font-size: 5em; /* Adjust font size for medium screens */
+			}
 
 			body, input, textarea, select {
 				font-size: 10pt;
+			}
+			.button-container {
+				flex-direction: column;  /* Stack buttons vertically */
+				justify-content: center; /* Center buttons vertically in container */
+				align-items: center;     /* Center buttons horizontally */
+				height: 100vh;           /* Full viewport height */
 			}
 
 	}
