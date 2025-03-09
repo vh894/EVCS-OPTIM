@@ -145,13 +145,22 @@ input, select, textarea {
 	}
 
 	a {
-		color: #006376;
-		text-decoration: underline;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: #6b7770;
+		margin: 10 0 0.5em 0;
+		line-height: 1.3;
+		text-decoration: none;
 	}
 
 		a:hover {
-			text-decoration: none;
+			text-decoration: underline;
 		}
+
+		a.no-underline:hover {
+			text-decoration: none;
+		  }
 
 	b, strong {
 		font-weight: 700;
@@ -2479,9 +2488,6 @@ input, select, textarea {
 	#banner {
 		position: relative;
 		background-color: rgba(21, 28, 23, 0.85);
-		background-position: top left, top left, center center;
-		background-repeat: repeat, repeat, no-repeat;
-		background-size: auto, auto, cover;
 		z-index: 1;
 		text-align: center;
 		padding: 11em 0;
@@ -2511,6 +2517,26 @@ input, select, textarea {
 				color: rgb(200, 198, 198);
 				font-size: 2em;
 				margin: 0 0 0.3em 0;
+			}
+
+			#banner .publication-authors{
+				margin-top: 30px;
+				font-size: 1.2em;
+				font-family: 'Open Sans Condensed', sans-serif;
+				text-transform: uppercase;
+				color: #8c9790; 
+			}
+
+			#banner .publication-authors a{
+				color: #8c9790; 
+			}
+			
+			#banner .organization {
+				margin-top: 5px; 
+				font-size: 1.2em;
+				font-family: 'Open Sans Condensed', sans-serif;
+				text-transform: uppercase;
+				color: #6c7770;
 			}
 
 			#banner .content p {
@@ -2577,7 +2603,7 @@ input, select, textarea {
 		padding: 20px; /* Add some padding for spacing */
 		overflow-y: auto; /* Allow scrolling if content overflows */
 	  }
-v	  
+	  
 	  
 
 /* Sidebar + Content */
@@ -2603,7 +2629,7 @@ v
 		}
 
 		#footer h2.major {
-			margin: 0 0 1.5em 0;
+			margin: 0 0 1em 0;
 		}
 
 			#footer h2.major span {
@@ -2615,7 +2641,7 @@ v
 	#copyright {
 		display: inline-block;
 		/*background: #e7eae8;*/
-		padding: 0.75em 2em 0.75em 2em;
+		padding: 0.5em 2em 0.5em 2em;
 		border-radius: 8px;
 		color: #8b9790;
 		margin: 0em 0 0 0;
@@ -2626,7 +2652,7 @@ v
 		}
 
 		#copyright .menu {
-			margin: 0;
+			margin: 0.5;
 		}
 
 			#copyright .menu li {
@@ -2991,17 +3017,6 @@ v
 				font-size: 11pt;
 			}
 
-			#banner .content h2 {
-				color: #fff;
-				font-size: 4em;
-				margin: 0 0 0.2em 0;
-			}
-
-			#banner .content h1 {
-				color: rgb(200, 198, 198);
-				font-size: 1.5em;
-				margin: 0 0 0.3em 0;
-			}
 				/*
 				h2.major {
 					font-size: 1.25em;
@@ -3019,26 +3034,24 @@ v
 			}
 
 			.content {
-				display: flex; /* Apply flexbox */
-				flex-direction: column; /* Stack the buttons vertically */
-				justify-content: center; /* Center buttons vertically */
-				align-items: center; /* Center buttons horizontally */
-				height: 100vh; /* Optional: make the content take full viewport height */
+				display: flex;
+				flex-direction: column; 
+				justify-content: center;
+				align-items: center; 
+				height: 100vh;
 			}
 			
 			.content h2 {
-				font-size: 5em; /* Adjust font size for medium screens */
-			}
-
-			/* Adjust the button styling if necessary */
-			.button {
-				display: block;
-				width: 100%; /* Adjust to fit the design */
-				margin: 10px 0; /* Add spacing between buttons */
-				text-align: center;
+				font-size: 5em;
 			}
 
 		/* Button */
+			.button {
+				display: block;
+				width: 100%; 
+				margin: 10px 0; 
+				text-align: center;
+			}
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
@@ -3056,6 +3069,12 @@ v
 					font-size: 1.25em;
 				}
 				
+				.button-container {
+					flex-direction: column;  
+					justify-content: center; 
+					align-items: center;     
+					height: 100vh;          
+				}
 		/* Actions */
 
 			ul.actions li {
@@ -3117,12 +3136,32 @@ v
 					padding: 4em 2.5em 3em 2.5em;
 				}
 
-					#banner .content h2 {
-						font-size: 2em;
-					}
-
 					#banner .content p {
 						font-size: 1.25em;
+					}
+
+					#banner .content h2 {
+						color: #fff;
+						font-size: 4em;
+						margin: 0 0 0.2em 0;
+					}
+		
+					#banner .content h1 {
+						color: rgb(200, 198, 198);
+						font-size: 1.5em;
+						margin: 0 0 0.3em 0;
+					}
+		
+					#banner .content .publication-authors {
+						color: #8d9790;
+						font-size: 1em;
+						margin-top: 25px;
+					}
+		
+					#banner .content .organization {
+						color: #6c7770;
+						font-size: 0.9em;
+						margin: 1 0 0.3em 0;
 					}
 
 		/* Main */
@@ -3162,17 +3201,23 @@ v
 
 		/* Basic */
 			.content h2 {
-				font-size: 5em; /* Adjust font size for medium screens */
+				font-size: 5em; 
 			}
 
 			body, input, textarea, select {
 				font-size: 10pt;
 			}
 			.button-container {
-				flex-direction: column;  /* Stack buttons vertically */
-				justify-content: center; /* Center buttons vertically in container */
-				align-items: center;     /* Center buttons horizontally */
-				height: 100vh;           /* Full viewport height */
+				flex-direction: column;  
+				justify-content: center; 
+				align-items: center;     
+				height: 100vh;    
+			}
+
+			#banner .content .publication-authors {
+				color: #8d9790;
+				font-size: 1em;
+				margin-top: 25px;
 			}
 
 	}
