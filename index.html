@@ -101,36 +101,6 @@
 							<span class="author-block"><sup>2</sup>San Diego Gas & Electric</span>
 						</div>
 					-->
-						<!--<a href="#main" class="button scrolly">Explore</a>-->
-						<!--
-						<span class="link-block">
-							<a href="https://github.com/ericstratford/charger-optimization.git"
-							   class="external-link button is-normal is-rounded is-dark">
-							  <span class="icon">
-								  <i class="fab fa-github"></i>
-							  </span>
-							  <span>Code</span>
-							  </a>
-						  </span>
-						  <span class="link-block">
-							<a href="https://ev-charging-stations-tool-zmc.streamlit.app/"
-							   class="external-link button is-normal is-rounded is-dark">
-							  <span class="icon">
-								  <i class="far fa-images"></i>
-							  </span>
-							  <span>Website</span>
-							  </a>
-						  </span>
-						  <span class="link-block">
-							<a href="https://drive.google.com/file/d/1u_IEPb6IydMm-r63II9eJuU-gPwMu8iN/view?usp=sharing"
-							   class="external-link button is-normal is-rounded is-dark">
-							  <span class="icon">
-								  <i class="fas fa-file-pdf"></i>
-							  </span>
-							  <span>Report</span>
-							</a>
-						  </span>
-						-->
 					</div>
 				</section>
 
@@ -140,19 +110,10 @@
 						<div class="row gtr-200">
 							<div class="col-12">
 
-								<!-- Highlight -->
+								<!-- Introduction -->
 									<section class="box highlight">
-										<!--
-										<ul class="special">
-											<li><a href="#" class="icon solid fa-search"><span class="label">Magnifier</span></a></li>
-											<li><a href="#" class="icon solid fa-tablet-alt"><span class="label">Tablet</span></a></li>
-											<li><a href="#" class="icon solid fa-flask"><span class="label">Flask</span></a></li>
-											<li><a href="#" class="icon solid fa-cog"><span class="label">Cog?</span></a></li>
-										</ul>
-										-->
 										<header>
 											<h2>Introduction</h2>
-											<!--<p>And some text that attempts to explain their significance</p>-->
 										</header>
 										<p>
 											With the growing emphasis on clean transportation, the demand for electric vehicles (EVs) 
@@ -167,7 +128,7 @@
 											including geospatial analysis and optimization modeling, to find the most effective 
 											parking lot locations for <br />new EV charging stations within San Diego County. By 
 											integrating previous EV adoption data, transit patterns, and proximity information, 
-											the <br />project provides an interactive tool to assist San Diego Gas & Electric (SDG&E), 
+											this <br />project provides an interactive tool to assist San Diego Gas & Electric (SDG&E), 
 											which owns and operates thousands of EV charging stations<br /> across the region, in 
 											strategically expanding its EV infrastructure.
 										  </p>
@@ -185,15 +146,13 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="assets/css/images/traffic_map.png" alt="" /></a>
-															<h3><a href="#">Data Analysis</a></h3>
+															<a class="image featured"><img src="assets/css/images/traffic_map.png" alt="" /></a>
+															<h3>Data Analysis</h3>
 															<p>
 																We conducted correlation analysis to determine what factors influence 
 																the location of current EV charging locations. Based on this analysis, we selected the following features: 
-																distance to the nearest charger, number of chargers already at a parking lot,
-																number of chargers within a specific radius, proximity to high-traffic areas, 
-																proximity to transit stops, and population demographics of the zone in which 
-																the parking lot is located.
+																distance to the nearest charger, number of chargers within a specific radius, proximity to high-traffic areas, 
+																and the population demographic and median income of the zone in which the parking lot is located.
 															</p>
 														</section>
 
@@ -202,8 +161,8 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-															<h3><a href="#">Weights</a></h3>
+															<a class="image featured"><img src="assets/css/images/weights.png" alt="" /></a>
+															<h3>Weights</h3>
 															<p>
 																Each feature was assigned a weight based on its correlation with the locations 
 																of existing chargers. Features that we wanted to avoid were given negative weights. 
@@ -219,12 +178,13 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-															<h3><a href="#">Demand Score</a></h3>
+															<a class="image featured"><img src="assets/css/images/demand_score.png" alt="" /></a>
+															<h3>Demand Score</h3>
 															<p>
 																After assigning the weights, we calculated a demand score for each parking lot. 
-																To standardize the scores, we applied min-max scaling, ensuring that all scores 
-																fell within the range of 0 to 1. 
+																To standardize the scores, we applied min-max scaling, ensuring that the absolute value of 
+																all the scores fall within a range of 0 to 1. Higher scores indicate a stronger recommendation, 
+																while negative scores suggest that the parking lot should not be recommended.
 															</p>
 														</section>
 
@@ -233,25 +193,17 @@
 
 													<!-- Feature -->
 														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-															<h3><a href="#">Recommendation Methods</a></h3>
+															<a class="image featured"><img src="assets/css/images/recommendation_map.png" alt="" /></a>
+															<h3>Recommendation Methods</h3>
 															<p>
 																We utilized two different recommendation methods for our model. If any parking lots' 
-																scores exceeded a predefined threshold, we recommend those lots. If none of the scores 
+																score exceeded a predefined threshold, we recommend those lots. If none of the scores 
 																exceeded the threshold, we ranked the parking lots by their demand scores and recommended 
 																the ones with the highest scores.
 															</p>
 														</section>
 
 												</div>
-												<!--
-												<div class="col-12">
-													<ul class="actions">
-														<li><a href="#" class="button large">Do Something</a></li>
-														<li><a href="#" class="button alt large">Think About It</a></li>
-													</ul>
-												</div>
-												-->
 											</div>
 										</div>
 									</section>
@@ -259,7 +211,7 @@
 							</div>
 							<div class="col-12">
 
-								<!-- Blog -->
+								<!-- Results -->
 									<section class="box blog">
 										<h2 class="major"><span>Results</span></h2>
 										<div>
@@ -320,20 +272,6 @@
 												 planners, utility companies, and other stakeholders to <br />expand EV charging access.
 											</p>
 										</section>
-										<!--
-										<div>
-											<div class="row">
-												<p>
-													Our project addresses the growing need for <br />more EV charging stations 
-													to support the increased demand for electric vehicles. By utilizing 
-													our interactive map, we aim to identify areas with the greatest need 
-													for new chargers, helping assist SDG&E's clean transportation team 
-													in planning the placement of future EV chargers. While there are some 
-													limitations to our work, we hope this project can be used as a foundation 
-													for future expansion and improvement in EV infrastructure.
-												</p>
-											</div>
-										-->
 										</div>
 									</section>
 
@@ -350,48 +288,6 @@
 							<li>&copy; Untitled. All rights reserved</li><li>Template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</div>
-					<!--
-					<div class="container">
-						
-						<div class="row gtr-200">
-							<div class="col-12">
-
-									<section>
-										<h2 class="major"><span>What's this about?</span></h2>
-										<p>
-											This is <strong>TXT</strong>, yet another free responsive site template designed by
-											<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>. It's released under the
-											<a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for
-											whatever you're working on (personal or commercial), just be sure to give us credit for the design.
-											That's basically it :)
-										</p>
-									</section>
-								
-							</div>
-							<div class="col-12">
-
-									<section>
-										<h2 class="major"><span>Get in touch</span></h2>
-										<ul class="contact">
-											<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
-											<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-											<li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
-											<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
-											<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
-										</ul>
-									</section>
-
-							</div>
-						</div>
-
-							<div id="copyright">
-								<ul class="menu">
-									<li>&copy; Untitled. All rights reserved</li><li>Template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a></li>
-								</ul>
-							</div>
-
-					</div>
-				-->
 				</footer>
 
 		</div>

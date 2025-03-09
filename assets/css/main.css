@@ -143,7 +143,7 @@ input, select, textarea {
 	h3, h4 {
 		font-size: 1.25em;
 	}
-
+	
 	a {
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 600;
@@ -2606,17 +2606,7 @@ input, select, textarea {
 	  
 	  
 
-/* Sidebar + Content */
-/*
-	.sidebar h2.major {
-		text-align: left;
-		margin: 0 0 1.5em 0;
-	}
 
-		.sidebar h2.major span {
-			padding-left: 0;
-		}
-*/
 /* Footer */
 
 	#footer {
@@ -2640,7 +2630,6 @@ input, select, textarea {
 
 	#copyright {
 		display: inline-block;
-		/*background: #e7eae8;*/
 		padding: 0.5em 2em 0.5em 2em;
 		border-radius: 8px;
 		color: #8b9790;
@@ -3017,16 +3006,6 @@ input, select, textarea {
 				font-size: 11pt;
 			}
 
-				/*
-				h2.major {
-					font-size: 1.25em;
-					margin: 0 0 2em 0;
-				}
-
-					h2.major span {
-						padding: 0 1em;
-					}
-				*/
 		/* Section/Article */
 
 			section, article {
