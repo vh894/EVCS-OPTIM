@@ -72,3 +72,14 @@
 				});
 
 })(jQuery);
+
+// Function to toggle the visibility of the text section
+document.getElementById("toggleButton").onclick = function() {
+	var textSection = document.getElementById("hiddenText");
+	if (textSection.style.display === "none") {
+	  textSection.style.display = "block";  // Show the text section
+	} else {
+	  textSection.style.display = "none";  // Hide the text section
+	}
+  };
+  

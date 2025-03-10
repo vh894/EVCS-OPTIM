@@ -1865,6 +1865,19 @@ input, select, textarea {
 			font-size: 1.65em;
 		}
 
+		#toggleButton {
+			margin-top: 50px;
+			padding: 14px;
+			background-color: #a1cd9b;
+			color: white;
+			border: none;
+			cursor: pointer;
+			border-radius: 8px;
+		  }
+		  
+		  #toggleButton:hover {
+			background-color: #c1edbb;
+		  }
 /* List */
 
 	ul {
@@ -2453,7 +2466,18 @@ input, select, textarea {
 		overflow-y: auto; /* Allow scrolling if content overflows */
 	  }
 	  
-	  
+	  #main .hidden-text h3{ 
+		margin-top: 20px;
+		font-size: 1.5em;
+	  }
+
+	  #main .hidden-text h4{ 
+		margin-top: 30px;
+	  }
+
+	  #main .hidden-text p{ 
+		margin-bottom: 15px;
+	  }
 
 
 /* Footer */

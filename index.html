@@ -10,6 +10,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -185,7 +188,7 @@
 															<h3>Demand Score</h3>
 															<p>
 																After assigning the weights, we calculated a demand score for each parking lot. 
-																To standardize the scores, we applied min-max scaling, ensuring that the absolute value of 
+																To normalize the scores, we applied Min-Max scaling, ensuring that the absolute value of 
 																all the scores fall within a range of 0 to 1. Higher scores indicate a stronger recommendation, 
 																while negative scores suggest that the parking lot should not be recommended.
 															</p>
@@ -209,6 +212,80 @@
 												</div>
 											</div>
 										</div>
+										<button id="toggleButton">Click for more details</button>
+
+										<!-- Hidden text section -->
+										<div class="hidden-text" id="hiddenText" style="display:none;">
+											<h3>Standardization and Weights</h3>
+											<h4>Percentile Ranking</h4>
+											<p>Each parking lot's performance is measured for each of 
+												the different features. To make comparisons easier, the 
+												scores for each feature are normalized using percentile 
+												ranking. This means that each parking lot is given a rank 
+												(from 0 to 1) based on how it compares to all other parking 
+												lots for that specific feature. A higher rank closer to 1 
+												indicates better performance in that feature, while a rank 
+												closer to 0 suggests lower performance. This standardization 
+												process ensures that each feature is normalized, making it easier 
+												to compare and combine them into a final score.
+											</p>
+											<p>Percentile Ranking Formula:</p>
+											<p>
+												\( P_{f,i} = \frac{\text{rank of location i for feature f} - 1}{\text{total number of locations} - 1} \)
+											</p>
+											
+											<h4>Empirical Probabilities</h4>
+											<p>Based off of our data analysis results, we determined that the zone the 
+												parking lot is in has a strong correlation with the location of a charger. 
+												Therefore, we ranked city zoning scores through empirical distribution 
+												probabilities of existing charger placement. Here are the assigned scores for 
+												the following land use categories: 
+											</p>
+											<ul>
+												<li>Commercial zones: 1.0 (optimal for public charging)</li>
+												<li>Office zones: 0.8 (suitable for workplace charging)</li>
+												<li>Mixed-use zones: 0.7 (valuable for diverse usage)</li>
+												<li>Transit zones: 0.6 (strategic for transportation connections)</li>
+												<li>Industrial zones: 0.5 (moderate potential for workplace charging)</li>
+												<li>Residential zones: High (0.3), Medium (0.2),Low (0.1)</li>
+												<li>Agricultural and open space zones: 0.0 (limited compatibility)</li>
+											</ul>
+
+											<h3>Weights</h3>
+											<p>We assigned the following weights for the features:</p>
+											<ul>
+												<li>Distance to nearest charger: +0.5 (prioritizing underserved areas)</li>
+												<li>Chargers in radius: -0.3 (penalizing redundancy)</li>
+												<li>Total charging points: -0.2 (avoiding oversaturation)</li>
+												<li>Traffic volume: +0.1 (favoring high-traffic areas)</li>
+												<li>Population density: +0.2 (serving residential demand)</li>
+												<li>Median income: +0.1 (accounting for EV adoption patterns)</li>
+												<li>Zoning score: 0.1 multiplier (incorporating land use)</li>
+											</ul>
+											
+											<h3>Demand Score Calculation</h3>
+											<p>To calculate the demand score for each parking lot, we multiplied 
+												the weight of each feature by its respective percentile ranking.
+											</p>
+											<p>
+												\[
+												\text{Demand Score} = (0.5 \times P_{\text{distance to nearest charger}}) + \\
+												(-0.3 \times P_{\text{chargers in radius}}) + \\
+												(-0.2 \times P_{\text{total charging points}}) + \\
+												(0.1 \times P_{\text{traffic}}) + \\
+												(0.2 \times P_{\text{population}}) + \\
+												(0.1 \times P_{\text{median income}}) + \\
+												(0.1 \times \text{zoning score})
+												\]
+											</p>
+											<p>We normalized the demand scores by using Min-Max scaling.</p>
+											<p>
+												\[
+												\text{Normalized Demand Score} = \frac{\text{Demand Score} - \min(\text{Demand Score})}{\max(\text{Demand Score}) - \min(\text{Demand Score})}
+												\]
+											</p>
+										</div>
+
 									</section>
 
 							</div>
