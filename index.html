@@ -93,7 +93,9 @@
 							<a class="no-underline">SDG&E Mentors: </a>
 							<a href="mailto:pnguyen@sdge.com">Phi Nguyen</a>,
 							<a href="mailto:AGaffen@sdge.com">Ari Gaffen</a>,
-							<a href="mailto:JMcCloskey@sdge.com">James McCloskey</a>
+							<a href="mailto:JMcCloskey@sdge.com">James McCloskey</a>,
+							<a href="mailto:KPark2@sdge.com">Kelly Park</a>,
+							<a href="mailto:ABolles@sdge.com">Anderson Bolles</a>
 						</div>
 						<!--
 						<div class="is-size-5 organization">
@@ -127,7 +129,7 @@
 											energy costs affordable for ratepayers. Our project <br />uses data-driven methodologies, 
 											including geospatial analysis and optimization modeling, to find the most effective 
 											parking lot locations for <br />new EV charging stations within San Diego County. By 
-											integrating previous EV adoption data, transit patterns, and proximity information, 
+											integrating previous EV adoption data, traffic patterns, and proximity information, 
 											this <br />project provides an interactive tool to assist San Diego Gas & Electric (SDG&E), 
 											which owns and operates thousands of EV charging stations<br /> across the region, in 
 											strategically expanding its EV infrastructure.
@@ -151,8 +153,9 @@
 															<p>
 																We conducted correlation analysis to determine what factors influence 
 																the location of current EV charging locations. Based on this analysis, we selected the following features: 
-																distance to the nearest charger, number of chargers within a specific radius, proximity to high-traffic areas, 
-																and the population demographic and median income of the zone in which the parking lot is located.
+																distance to the nearest charger, number of chargers within a specific radius, total charging points available 
+																at nearby stations, proximity to high-traffic areas, zoning data, and the population demographic and median 
+																income of the zone in which the parking lot is located.
 															</p>
 														</section>
 
@@ -162,11 +165,11 @@
 													<!-- Feature -->
 														<section class="box feature">
 															<a class="image featured"><img src="assets/css/images/weights.png" alt="" /></a>
-															<h3>Weights</h3>
+															<h3>Standardization and Weights</h3>
 															<p>
-																Each feature was assigned a weight based on its correlation with the locations 
-																of existing chargers. Features that we wanted to avoid were given negative weights. 
-																For instance, the "distance to the nearest charger" feature received a negative weight, 
+																Each parking lot was assigned a percentile rank (0-1) for each feature relative to all other 
+																locations. The standardized features were then assigned weights based on their importance to 
+																EV charging demand. For instance, the "chargers in radius" feature received a negative weight, 
 																as we aim to recommend parking lots that are farther from existing stations. On the 
 																other hand, features that likely indicate higher demand, such as "proximity to 
 																high-traffic areas," were given positive weights.
@@ -194,12 +197,12 @@
 													<!-- Feature -->
 														<section class="box feature">
 															<a class="image featured"><img src="assets/css/images/recommendation_map.png" alt="" /></a>
-															<h3>Recommendation Methods</h3>
+															<h3>Recommendation Method</h3>
 															<p>
-																We utilized two different recommendation methods for our model. If any parking lots' 
-																score exceeded a predefined threshold, we recommend those lots. If none of the scores 
-																exceeded the threshold, we ranked the parking lots by their demand scores and recommended 
-																the ones with the highest scores.
+																The demand scores for the parking lots were ranked from highest to lowest and assigned 
+																one of three recommendation labels: highly recommended, recommended, or not recommended. 
+																The parking lots are then displayed on the interactive map along with additional details 
+																about each parking lot.
 															</p>
 														</section>
 
@@ -240,7 +243,7 @@
 													user-contributed data, which may lead to missing <br />or incomplete information. 
 													Additionally, the tool is currently limited to SDG&E's service areas and uses 
 													static assumptions, restricting <br />its generalizability to other regions and future 
-													urban development. Finally, the model hasn't been tested with city planners or EV 
+													urban development. Furthermore, the model hasn't been tested with city planners or EV 
 													<br />drivers, which could limit the applicability of the recommendations.
 												</p>
 											</section>
